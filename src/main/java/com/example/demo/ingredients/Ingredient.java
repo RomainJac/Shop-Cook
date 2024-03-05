@@ -57,4 +57,16 @@ public class Ingredient implements Serializable {
     public void addDietaryRestriction(DietaryRestriction dietaryRestriction) {
         this.dietaryRestrictions.add(dietaryRestriction);
     }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public void setDietaryRestrictions(List<DietaryRestriction> dietaryRestrictions) {
+        this.dietaryRestrictions = dietaryRestrictions;
+    }
+    public void setNutriscore(float nutriscore) {
+        this.nutriscore = nutriscore;
+    }
+    public void setCalories(int calories) {
+        this.calories = calories;
+    }
 }

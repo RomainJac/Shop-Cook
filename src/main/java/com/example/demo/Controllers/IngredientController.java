@@ -17,7 +17,7 @@ import com.example.demo.ingredients.DietaryRestriction;
 import com.example.demo.ingredients.Ingredient;
 import com.example.demo.repositories.IngredientRepository;
 
-@RestController
+@Controller
 @RequestMapping(path = "/ingredients") // This means URL's start with /demo (after Application path)
 public class IngredientController {
     @Autowired // This means to get the bean called userRepository
@@ -33,15 +33,17 @@ public class IngredientController {
         for (String s : dietaryRestrictions.split(";")) {
             dietaryRestrictionsList.add(new DietaryRestriction(s));
         }
-        Ingredient n = new Ingredient(name, dietaryRestrictionsList, nutriscore, calories);
-        ingredientRepository.save(n);
-        return ("redirect:/ingredients/all");
+        Ingredient i = new Ingredient();
+        i.setName(name);
+        i.setDietaryRestrictions(dietaryRestrictionsList);
+        i.setNutriscore(nutriscore);
+        i.setCalories(calories);
+        ingredientRepository.save(i);
+        return ("redirect:/ingredients");
     }
     @GetMapping("/add")
-    public ModelAndView addIngredient() {
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("addIngredients.html");
-        return mv;
+    public String show() {
+        return "ingredients.html";
     }
     @GetMapping(path = "/all")
     public Iterable<Ingredient> getAllIngredients() {
