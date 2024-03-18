@@ -9,6 +9,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
@@ -18,6 +19,12 @@ public class Ingredient implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    public Integer getId() {
+        return id;
+    }
+    public void setId(Integer id) {
+        this.id = id;
+    }
     private String name;
     // @ElementCollection
     // @OneToMany
@@ -26,7 +33,6 @@ public class Ingredient implements Serializable {
     private float nutriscore;
     @Nullable
     private int calories;
-
     // public Ingredient(String name, List<DietaryRestriction> dietaryRestrictions, float nutriscore, int calories) {
     //     this.name = name;
     //     this.dietaryRestrictions = dietaryRestrictions;
