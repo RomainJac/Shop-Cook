@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.view.RedirectView;
 
 import jakarta.servlet.http.HttpServletResponse;
-import l3.miage.shopcook.ingredients.Ingredient;
+import l3.miage.shopcook.entity.ingredients.Ingredient;
 import l3.miage.shopcook.repositories.IngredientRepository;
 
 
