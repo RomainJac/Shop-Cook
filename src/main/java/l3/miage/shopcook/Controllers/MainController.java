@@ -1,4 +1,4 @@
-package com.example.demo.Controllers;
+package l3.miage.shopcook.Controllers;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,8 +11,8 @@ public class MainController {
     
     @GetMapping
     public ModelAndView main() {
-  ModelAndView mv = new ModelAndView();
-        mv.setViewName("ingredients.html");
+         ModelAndView mv = new ModelAndView();
+        mv.setViewName("home.html");
 
         return mv;    }
 

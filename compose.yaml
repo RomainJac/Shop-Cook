@@ -1,0 +1,13 @@
+services:
+  mysql:
+    volumes:
+        - ./schema.sql:/docker-entrypoint-initdb.d/schema.sql
+    image: 'mysql:latest'
+    environment:
+      - 'MYSQL_DATABASE=shopcook'
+      - 'MYSQL_PASSWORD=password'
+      - 'MYSQL_ROOT_PASSWORD=rpassword'
+      - 'MYSQL_USER=pino'
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_general_ci --default-authentication-plugin=mysql_native_password 
+    ports:
+      - '3306'

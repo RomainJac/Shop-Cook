@@ -1,23 +1,22 @@
-package com.example.demo.Controllers;
+package l3.miage.shopcook.Controllers;
 
-import java.util.ArrayList;
+import java.io.IOException;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
-import com.example.demo.ingredients.DietaryRestriction;
-import com.example.demo.ingredients.Ingredient;
-import com.example.demo.repositories.IngredientRepository;
+import jakarta.servlet.http.HttpServletResponse;
+import l3.miage.shopcook.ingredients.Ingredient;
+import l3.miage.shopcook.repositories.IngredientRepository;
 
-@Controller
+
+
+@RestController
 @RequestMapping(path = "/ingredients") // This means URL's start with /demo (after Application path)
 public class IngredientController {
     @Autowired // This means to get the bean called userRepository
@@ -25,31 +24,31 @@ public class IngredientController {
     private IngredientRepository ingredientRepository;
 
     @PostMapping(path = "/add") // Map ONLY POST Requests
-    public String addNewIngredient(@RequestParam String name, @RequestParam String dietaryRestrictions,
-            @RequestParam float nutriscore, @RequestParam int calories) {
+    public RedirectView  addNewIngredient(@RequestParam String name,
+            @RequestParam float nutriscore, @RequestParam int calories, HttpServletResponse response) throws IOException {
         // @ResponseBody means the returned String is the response, not a view name
         // @RequestParam means it is a parameter from the GET or POST request
-        List<DietaryRestriction> dietaryRestrictionsList = new ArrayList<>();
-        for (String s : dietaryRestrictions.split(";")) {
-            dietaryRestrictionsList.add(new DietaryRestriction(s));
-        }
+        // List<DietaryRestriction> dietaryRestrictionsList = new ArrayList<>();
+        // for (String s : dietaryRestrictions.split(";")) {
+        //     dietaryRestrictionsList.add(new DietaryRestriction(s));
+        // }
         Ingredient i = new Ingredient();
         i.setName(name);
-        i.setDietaryRestrictions(dietaryRestrictionsList);
+        // i.setDietaryRestrictions(dietaryRestrictionsList);
         i.setNutriscore(nutriscore);
         i.setCalories(calories);
         ingredientRepository.save(i);
-        return ("redirect:/ingredients");
+        return new RedirectView ("/ingredients/");
     }
-    @GetMapping("/add")
-    public String show() {
-        return "ingredients.html";
-    }
-    @GetMapping(path = "/all")
-    public Iterable<Ingredient> getAllIngredients() {
+
+   @GetMapping(path = "/all")
+    public List<Ingredient> getAllIngredients() {
         // This returns a JSON or XML with the users
         return ingredientRepository.findAll();
     }
+
+
+ 
 
     
 }
