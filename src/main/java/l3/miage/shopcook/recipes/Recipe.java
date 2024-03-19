@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.hibernate.id.CompositeNestedGeneratedValueGenerator.GenerationPlan;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,11 +23,12 @@ public class Recipe {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @ElementCollection
-    @ManyToMany
+    @ManyToMany(mappedBy = "name")
     private List<Ingredient> ingredients;
     private String image;
     private String name;
     private String description;
+    @Column(name = "time_to_make")
     private String timeToMake;
 
     public List<Ingredient> getIngredients() {

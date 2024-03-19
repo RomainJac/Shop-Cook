@@ -12,4 +12,16 @@ CREATE TABLE IF NOT EXISTS recipes(
     description TEXT,
     image VARCHAR(255),
     calories INT
+    time_to_make VARCHAR(255) NOT NULL
     );
+CREATE TABLE  IF NOT EXISTS user (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS role (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+);
