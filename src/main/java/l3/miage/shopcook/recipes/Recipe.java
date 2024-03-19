@@ -3,17 +3,14 @@ package l3.miage.shopcook.recipes;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.hibernate.id.CompositeNestedGeneratedValueGenerator.GenerationPlan;
-
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import l3.miage.shopcook.ingredients.Ingredient;
+import l3.miage.shopcook.entity.ingredients.Ingredient;
 
 @Entity
 @Table(name="recipes")

@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import l3.miage.shopcook.ingredients.Ingredient;
+import l3.miage.shopcook.entity.ingredients.Ingredient;
 
 @Service
 public interface IngredientService {

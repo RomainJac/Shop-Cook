@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import l3.miage.shopcook.ingredients.Ingredient;
+import l3.miage.shopcook.entity.ingredients.Ingredient;
 import l3.miage.shopcook.repositories.IngredientRepository;
 @Service
 public class IngredientServiceImpl implements IngredientService {

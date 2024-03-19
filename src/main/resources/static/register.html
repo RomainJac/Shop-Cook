@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"
-      xmlns:th="http://www.thymeleaf.org"
->
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Registration and Login System</title>
@@ -9,9 +7,9 @@
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" th:fragment="header">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container-fluid">
-        <a class="navbar-brand" th:href="@{/}">Registration and Login System</a>
+        <a class="navbar-brand" href="/">Registration and Login System</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -23,7 +21,7 @@
 <div class="container">
     <div class="row col-md-8 offset-md-2">
         <div class="card">
-            <div th:if="${param.success}">
+            <div>
                 <div class="alert alert-info">You've successfully registered
                     to our app!</div>
             </div>
@@ -31,7 +29,7 @@
                 <h2 class="text-center">Registration</h2>
             </div>
             <div class="card-body">
-                <form method="post" role="form" th:action="@{/register/save}" th:object="${user}">
+                <form method="post" role="form" action="/register/save">
 
                     <div class="form-group mb-3">
                         <label class="form-label">First Name</label>
@@ -39,11 +37,9 @@
                                id="firstName"
                                name="firstName"
                                placeholder="Enter first name"
-                               th:field="*{firstName}"
                                type="text"
                         />
-                        <p th:errors="*{firstName}" class="text-danger"
-                           th:if="${#fields.hasErrors('firstName')}">
+                        <p class="text-danger">
                         </p>
                     </div>
 
@@ -53,11 +49,9 @@
                                id="lastName"
                                name="lastName"
                                placeholder="Enter last name"
-                               th:field="*{lastName}"
                                type="text"
                         />
-                        <p th:errors="*{lastName}" class="text-danger"
-                           th:if="${#fields.hasErrors('lastName')}">
+                        <p class="text-danger">
                         </p>
                     </div>
                     <div class="form-group mb-3">
@@ -66,11 +60,9 @@
                                id="email"
                                name="email"
                                placeholder="Enter email address"
-                               th:field="*{email}"
                                type="email"
                         />
-                        <p th:errors="*{email}" class="text-danger"
-                           th:if="${#fields.hasErrors('email')}">
+                        <p class="text-danger">
                         </p>
                     </div>
                     <div class="form-group mb-3">
@@ -79,17 +71,15 @@
                                id="password"
                                name="password"
                                placeholder="Enter password"
-                               th:field="*{password}"
                                type="password"
                         />
-                        <p th:errors="*{password}" class="text-danger"
-                           th:if="${#fields.hasErrors('password')}">
+                        <p class="text-danger">
                         </p>
                     </div>
 
                     <div class="form-group mb-3">
                         <button class="btn btn-primary" type="submit">Register</button>
-                        <span>Already registered? <a href="/" th:href="@{/login}">Login
+                        <span>Already registered? <a href="/">Login
                              here</a></span>
                     </div>
                 </form>
