@@ -1,4 +1,4 @@
-package l3.miage.shopcook.controllers;
+package l3.miage.shopcook.Controllers;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
