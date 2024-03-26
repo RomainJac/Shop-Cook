@@ -14,7 +14,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import l3.miage.shopcook.ingredients.Ingredient;
+import l3.miage.shopcook.entity.ingredients.Ingredient;
 
 @Entity
 @Table(name="recipes")

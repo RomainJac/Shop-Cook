@@ -1,3 +1,4 @@
+package l3.miage.shopcook.entity.ingredients;
 // package l3.miage.shopcook.ingredients;
 
 // import java.io.Serializable;

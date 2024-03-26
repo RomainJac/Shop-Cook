@@ -1,4 +1,4 @@
-package l3.miage.shopcook.controllers;
+package l3.miage.shopcook.Controllers;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -22,8 +22,8 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import jakarta.servlet.http.HttpServletResponse;
-import l3.miage.shopcook.ingredients.Ingredient;
-import l3.miage.shopcook.ingredients.IngredientDTO;
+import l3.miage.shopcook.entity.ingredients.Ingredient;
+import l3.miage.shopcook.entity.ingredients.IngredientDTO;
 import l3.miage.shopcook.repositories.IngredientRepository;
 import l3.miage.shopcook.services.IngredientService;
 
