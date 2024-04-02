@@ -1,13 +1,11 @@
 package l3.miage.shopcook.dto;
 
-import l3.miage.shopcook.user.User;
-
 public class IngredientDTO {
     String name;
     int calories;
     float nutriscore;
     String user;
-    
+
     public String getName() {
         return name;
     }

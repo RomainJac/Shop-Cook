@@ -11,6 +11,7 @@ public class IngredientMapper {
 
     @Autowired
     private UserRepository userRepository;
+
     public IngredientDTO toDTO(Ingredient ingredient) {
         IngredientDTO ingredientDTO = new l3.miage.shopcook.dto.IngredientDTO();
         ingredientDTO.setName(ingredient.getName());

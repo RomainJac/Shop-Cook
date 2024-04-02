@@ -19,7 +19,7 @@ public class UserController {
     private UserService userService;
 
     @Autowired
-    private UserMapper userMapper; 
+    private UserMapper userMapper;
 
     @GetMapping("/all")
     public List<UserDTO> getAllUsers() {
@@ -30,7 +30,7 @@ public class UserController {
     @GetMapping("/{id}")
     public UserDTO getUserById(@PathVariable Long id) {
         User user = userService.findById(id);
-        return userMapper.toDTO(user); 
+        return userMapper.toDTO(user);
     }
 
     @PostMapping(path = "add")

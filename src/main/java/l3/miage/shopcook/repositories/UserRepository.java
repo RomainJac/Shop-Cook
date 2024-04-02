@@ -7,7 +7,10 @@ import l3.miage.shopcook.user.User;
 public interface UserRepository extends JpaRepository<User, Integer> {
 
     boolean existsById(long id);
+
     User deleteById(long id);
+
     User findById(long id);
+
     User findByUsername(String username);
 }

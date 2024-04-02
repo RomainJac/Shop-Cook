@@ -9,11 +9,18 @@ import l3.miage.shopcook.user.User;
 
 @Service
 public interface IngredientService {
-    boolean save(Ingredient ingredient);
-    boolean removeIngredient(Ingredient ingredient);
-    boolean updateIngredient(Ingredient ingredient);
+    Ingredient save(Ingredient ingredient);
+
+    Ingredient removeIngredient(Ingredient ingredient);
+
+    Ingredient updateIngredient(Ingredient ingredient);
+
     Ingredient getById(int id);
+
     List<Ingredient> findAll();
-    List<Ingredient>findByUser(User user);
-    void deleteById(Integer id);
+
+    List<Ingredient> findByUser(User user);
+
+    Ingredient deleteById(Integer id);
+
 }

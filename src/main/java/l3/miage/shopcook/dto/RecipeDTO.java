@@ -1,6 +1,5 @@
 package l3.miage.shopcook.dto;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import l3.miage.shopcook.ingredients.Ingredient;
@@ -16,12 +15,15 @@ public class RecipeDTO {
     public String getName() {
         return name;
     }
+
     public String getUser() {
         return user;
     }
+
     public void setUser(String user) {
         this.user = user;
     }
+
     public void setName(String name) {
         this.name = name;
     }

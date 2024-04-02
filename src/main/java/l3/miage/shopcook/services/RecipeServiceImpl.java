@@ -15,25 +15,28 @@ public class RecipeServiceImpl implements RecipeService {
     private RecipeRepository recipeRepository;
 
     @Override
-    public boolean save(Recipe recipe) {
-        this.recipeRepository.save(recipe);
-        return true;
+    public Recipe save(Recipe recipe) {
+        try {
+            return this.recipeRepository.save(recipe);
+        } catch (Exception e) {
+
+            return null;
+        }
     }
 
     @Override
-    public boolean delete(Recipe recipe) {
+    public Recipe delete(Recipe recipe) {
         this.recipeRepository.delete(recipe);
-        return true;
+        return recipe;
     }
 
     @Override
-    public boolean update(Recipe recipe) {
+    public Recipe update(Recipe recipe) {
         if (this.recipeRepository.existsById(recipe.getId())) {
             this.recipeRepository.deleteById(recipe.getId());
-            this.save(recipe);
-            return true;
+            return this.save(recipe);
         }
-        return false;
+        return null;
     }
 
     @Override
@@ -49,6 +52,18 @@ public class RecipeServiceImpl implements RecipeService {
     @Override
     public List<Recipe> findByUser(User user) {
         return this.recipeRepository.findByUser(user);
-        }
+    }
+
+    @Override
+    public Recipe deleteById(Integer id) {
+        Recipe recipe = this.recipeRepository.findById(id).get();
+        this.recipeRepository.deleteById(id);
+        return recipe;
+    }
+
+    @Override
+    public Recipe findByName(String title) {
+        return this.recipeRepository.findByName(title);
+    }
 
 }

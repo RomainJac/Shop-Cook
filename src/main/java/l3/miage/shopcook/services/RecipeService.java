@@ -9,10 +9,20 @@ import l3.miage.shopcook.user.User;
 
 @Service
 public interface RecipeService {
-    boolean save(Recipe recipe);
-    boolean delete(Recipe recipe);
-    boolean update(Recipe recipe);
+    Recipe save(Recipe recipe);
+
+    Recipe delete(Recipe recipe);
+
+    Recipe update(Recipe recipe);
+
     Recipe findById(int id);
-    List<Recipe> findAll(); 
+
+    List<Recipe> findAll();
+
     List<Recipe> findByUser(User user);
+
+    Recipe deleteById(Integer id);
+
+    Recipe findByName(String name);
+
 }

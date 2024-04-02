@@ -7,13 +7,13 @@ import org.springframework.stereotype.Component;
 
 import l3.miage.shopcook.dto.RecipeDTO;
 import l3.miage.shopcook.recipes.Recipe;
-import l3.miage.shopcook.repositories.RecipeRepository;
 import l3.miage.shopcook.repositories.UserRepository;
 
 @Component
 public class RecipeMapper {
-@Autowired
-UserRepository userRepository;
+    @Autowired
+    UserRepository userRepository;
+
     public RecipeDTO toDTO(Recipe recipe) {
         RecipeDTO recipeDTO = new RecipeDTO();
         recipeDTO.setName(recipe.getName());
