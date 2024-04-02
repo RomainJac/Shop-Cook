@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import l3.miage.shopcook.recipes.Recipe;
 import l3.miage.shopcook.repositories.RecipeRepository;
+import l3.miage.shopcook.user.User;
 
 @Service
 public class RecipeServiceImpl implements RecipeService {
@@ -43,6 +44,11 @@ public class RecipeServiceImpl implements RecipeService {
     @Override
     public List<Recipe> findAll() {
         return this.recipeRepository.findAll();
+    }
+
+    @Override
+    public List<Recipe> findByUser(User user) {
+        throw new UnsupportedOperationException("Unimplemented method 'findByUser'");
     }
 
 }

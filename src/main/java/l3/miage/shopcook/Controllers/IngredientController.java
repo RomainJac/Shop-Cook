@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 package l3.miage.shopcook.controllers;
 
 import java.io.IOException;
@@ -35,8 +33,7 @@ public class IngredientController {
         ingredientService.save(ingredient);
         return ResponseEntity.ok("Saved");
     }
-
-    @PostMapping(path = "/add", consumes = { "application/json" })
+@PostMapping(path = "/add", consumes = { "application/json" })
     public Ingredient add(@RequestBody IngredientDTO ingredientDTO) throws IOException {
         // @ResponseBody means the returned String is the response, not a view name
         // @RequestParam means it is a parameter from the GET or POST request
@@ -52,4 +49,3 @@ public class IngredientController {
     }
 
 }
->>>>>>> 2876bea6d0cc87bc7a0f54968472eec234bf1b32
