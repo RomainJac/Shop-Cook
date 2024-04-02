@@ -29,10 +29,10 @@ public class IngredientController {
     ModelMapper modelMapper;
     @PostMapping(path = "/add",  consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE 
     ) // Map ONLY POST Requests
-    public Ingredient  addNewIngredient(IngredientDTO ingredientDTO) throws IOException {
+    public ResponseEntity<String> addNewIngredient(IngredientDTO ingredientDTO) throws IOException {
         Ingredient ingredient = this.modelMapper.map(ingredientDTO, Ingredient.class);
         ingredientService.save(ingredient);
-        return ingredient;
+        return ResponseEntity.ok("Saved");
     }
     @PostMapping(path = "/add",  consumes = {"application/json"}) 
     public Ingredient add(@RequestBody IngredientDTO ingredientDTO) throws IOException {
