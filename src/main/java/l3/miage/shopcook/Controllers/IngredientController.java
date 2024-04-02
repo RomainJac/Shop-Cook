@@ -1,6 +1,7 @@
-package l3.miage.shopcook.Controllers;
+package l3.miage.shopcook.controllers;
 
 import java.io.IOException;
+import java.lang.ProcessBuilder.Redirect;
 import java.util.List;
 
 import org.modelmapper.ModelMapper;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.view.RedirectView;
 
 import l3.miage.shopcook.ingredients.Ingredient;
 import l3.miage.shopcook.ingredients.IngredientDTO;
@@ -29,10 +31,10 @@ public class IngredientController {
     ModelMapper modelMapper;
     @PostMapping(path = "/add",  consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE 
     ) // Map ONLY POST Requests
-    public ResponseEntity<String> addNewIngredient(IngredientDTO ingredientDTO) throws IOException {
+    public RedirectView addNewIngredient(IngredientDTO ingredientDTO) throws IOException {
         Ingredient ingredient = this.modelMapper.map(ingredientDTO, Ingredient.class);
         ingredientService.save(ingredient);
-        return ResponseEntity.ok("Saved");
+        return new RedirectView("/ingredients/");
     }
     @PostMapping(path = "/add",  consumes = {"application/json"}) 
     public Ingredient add(@RequestBody IngredientDTO ingredientDTO) throws IOException {
