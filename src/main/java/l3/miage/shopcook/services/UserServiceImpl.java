@@ -50,13 +50,16 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User findById(int id) {
-     return this.userRepository.findById(id).get();   
+    public User findById(long id) {
+     return this.userRepository.findById(id);
     }
 
     @Override
     public List<User> findAll() {
         return this.userRepository.findAll();
     }
-    
+    @Override
+    public User deleteById(long id) {
+        return this.userRepository.deleteById(id);
+    }
 }

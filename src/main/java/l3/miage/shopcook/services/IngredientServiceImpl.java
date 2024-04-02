@@ -60,8 +60,7 @@ public class IngredientServiceImpl implements IngredientService {
     }
     @Override
     public List<Ingredient> findByUser(User user) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findByUser'");
+       return this.ingredientRepository.findByUser(user);
     }
     
 }

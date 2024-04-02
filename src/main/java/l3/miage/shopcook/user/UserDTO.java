@@ -3,7 +3,6 @@ package l3.miage.shopcook.user;
 public class UserDTO {
 
     private String username;
-
     public UserDTO(String username) {
         this.username = username;
 

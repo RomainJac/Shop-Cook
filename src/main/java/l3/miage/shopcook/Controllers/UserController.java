@@ -21,45 +21,35 @@ import l3.miage.shopcook.user.UserDTO;
 @RequestMapping(path = "/users")
 public class UserController {
 
-    private final UserService userService;
-
-    @Autowired
-    public UserController(UserService userService) {
-        this.userService = userService;
-    }
-
-    @GetMapping("/all")
-    public List<User> getAllUsers() {
-        return userService.getAllUsers();
-    }
-
-    @GetMapping("/{id}")
-    public User getUserById(@PathVariable Long id) {
-        return userService.getUserById(id);
-    }
-
-    @PostMapping
-    public User createUser(@RequestBody User user) {
-        return userService.createUser(user);
-    }
-
-    @PutMapping("/{id}")
-    public User updateUser(@PathVariable Long id, @RequestBody User user) {
-        return userService.updateUser(id, user);
-    }
-
-    @DeleteMapping("/{id}")
-    public void deleteUser(@PathVariable Long id) {
-        userService.deleteUser(id);
-    }
-
-    @GetMapping("/search")
-    
     @Autowired
     private UserService userService;
      @Autowired
     ModelMapper modelMapper;
 
+
+    @GetMapping("/all")
+    public List<User> getAllUsers() {
+        return userService.findAll();
+    }
+
+    @GetMapping("/{id}")
+    public User getUserById(@PathVariable Long id) {
+        return userService.findById(id);
+    }
+
+    @PostMapping
+    public boolean createUser(@RequestBody User user) {
+        return userService.save(user);
+    }
+
+
+    @DeleteMapping("/{id}")
+    public void deleteUser(@PathVariable Long id) {
+        userService.deleteById(id);
+    }
+
+    
+  
     @PostMapping(path = "/add")
     public void addUser(@RequestParam UserDTO userdto) {
         User user = this.modelMapper.map(userdto, User.class);

@@ -11,6 +11,7 @@ public interface UserService {
     boolean save(User user);
     boolean delete(User user);
     boolean update(User user);
-    User findById(int id);
+    User findById(long id);
     List<User> findAll(); 
+    User deleteById(long id);
 }
