@@ -7,10 +7,12 @@ import org.springframework.stereotype.Service;
 
 import l3.miage.shopcook.recipes.Recipe;
 import l3.miage.shopcook.repositories.RecipeRepository;
+
 @Service
-public class RecipeServiceImpl implements RecipeService{
+public class RecipeServiceImpl implements RecipeService {
     @Autowired
     private RecipeRepository recipeRepository;
+
     @Override
     public boolean save(Recipe recipe) {
         this.recipeRepository.save(recipe);
@@ -42,5 +44,5 @@ public class RecipeServiceImpl implements RecipeService{
     public List<Recipe> findAll() {
         return this.recipeRepository.findAll();
     }
-    
+
 }

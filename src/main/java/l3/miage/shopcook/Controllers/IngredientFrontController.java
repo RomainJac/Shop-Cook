@@ -1,8 +1,9 @@
-package l3.miage.shopcook.controllers;
+package l3.miage.shopcook.Controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 //Si on était bons avec un moteur de template comme thymeleaf, on aurait pu 
 //utiliser notre IngredientController pour afficher une page dynamique, à partir du json.
 //Malheureusement, on ne maîtrise que twig, donc les pages de ce controlleur sont statiques.
@@ -17,6 +18,7 @@ public class IngredientFrontController {
     public String show() {
         return "addIngredients.html";
     }
+
     @GetMapping("/")
     public String showOptions() {
         return "ingredientsOptions.html";

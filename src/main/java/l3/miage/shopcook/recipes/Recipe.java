@@ -3,7 +3,6 @@ package l3.miage.shopcook.recipes;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
@@ -15,7 +14,7 @@ import jakarta.persistence.Table;
 import l3.miage.shopcook.ingredients.Ingredient;
 
 @Entity
-@Table(name="recipes")
+@Table(name = "recipes")
 public class Recipe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -70,11 +69,11 @@ public class Recipe {
     }
 
     public Recipe() {
-        this.ingredients=new ArrayList<>();
+        this.ingredients = new ArrayList<>();
     }
 
     public int getId() {
         return this.id;
     }
-    
+
 }

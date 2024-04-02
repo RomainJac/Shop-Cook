@@ -6,14 +6,15 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 @RestController
-@RequestMapping(path="/")
+@RequestMapping(path = "/")
 public class MainController {
-    
+
     @GetMapping
     public ModelAndView main() {
-         ModelAndView mv = new ModelAndView();
+        ModelAndView mv = new ModelAndView();
         mv.setViewName("ingredients.html");
 
-        return mv;    }
+        return mv;
+    }
 
 }

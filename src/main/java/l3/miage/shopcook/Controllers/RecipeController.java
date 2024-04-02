@@ -19,18 +19,21 @@ import l3.miage.shopcook.services.RecipeService;
 public class RecipeController {
     @Autowired
     private RecipeService recipeService;
+
     @GetMapping(path = "/all")
     public List<Recipe> findAll() {
         return this.recipeService.findAll();
     }
-    @PostMapping (path = "/add")
+
+    @PostMapping(path = "/add")
     public RedirectView addRecipe(@RequestBody Recipe recipe) {
         this.recipeService.save(recipe);
         return new RedirectView("/options");
     }
+
     @GetMapping(path = "/{id}")
-    public Recipe findById(@PathVariable("id")int id) {
-        return this.recipeService.findById( id);
+    public Recipe findById(@PathVariable("id") int id) {
+        return this.recipeService.findById(id);
     }
-    
+
 }
