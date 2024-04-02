@@ -3,7 +3,6 @@ package l3.miage.shopcook.ingredients;
 import java.io.Serializable;
 
 import jakarta.annotation.Nullable;
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
