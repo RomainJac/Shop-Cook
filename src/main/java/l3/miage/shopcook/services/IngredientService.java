@@ -8,6 +8,7 @@ import l3.miage.shopcook.ingredients.Ingredient;
 
 @Service
 public interface IngredientService {
+    //Name should be unique
     boolean save(Ingredient ingredient);
     boolean removeIngredient(Ingredient ingredient);
     boolean updateIngredient(Ingredient ingredient);

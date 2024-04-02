@@ -14,6 +14,9 @@ public class IngredientServiceImpl implements IngredientService {
     @Override
     public boolean save(Ingredient ingredient) {
         try {
+            if (this.ingredientRepository.existsById(ingredient.getId())) {
+                return false;
+            }
             this.ingredientRepository.save(ingredient);
             return true;
         }

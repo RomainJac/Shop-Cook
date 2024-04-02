@@ -29,18 +29,18 @@ public class IngredientController {
     ModelMapper modelMapper;
     @PostMapping(path = "/add",  consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE 
     ) // Map ONLY POST Requests
-    public ResponseEntity<String>  addNewIngredient(IngredientDTO ingredientDTO) throws IOException {
+    public Ingredient  addNewIngredient(IngredientDTO ingredientDTO) throws IOException {
         Ingredient ingredient = this.modelMapper.map(ingredientDTO, Ingredient.class);
         ingredientService.save(ingredient);
-        return ResponseEntity.ok("Ingredient Saved");
+        return ingredient;
     }
     @PostMapping(path = "/add",  consumes = {"application/json"}) 
-    public ResponseEntity<String>  add(@RequestBody IngredientDTO ingredientDTO) throws IOException {
+    public Ingredient add(@RequestBody IngredientDTO ingredientDTO) throws IOException {
         // @ResponseBody means the returned String is the response, not a view name
         // @RequestParam means it is a parameter from the GET or POST request
         Ingredient ingredient = this.modelMapper.map(ingredientDTO, Ingredient.class);
         ingredientService.save(ingredient);
-        return ResponseEntity.ok("Ingredient Saved");
+        return ingredient;
     }
 
    @GetMapping(path = "/all")
