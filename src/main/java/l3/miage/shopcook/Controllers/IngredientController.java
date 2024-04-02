@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 package l3.miage.shopcook.controllers;
 
 import java.io.IOException;
@@ -52,4 +50,3 @@ public class IngredientController {
     }
 
 }
->>>>>>> 2876bea6d0cc87bc7a0f54968472eec234bf1b32
