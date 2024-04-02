@@ -1,4 +1,4 @@
-package l3.miage.shopcook.Controllers;
+package l3.miage.shopcook.controllers;
 
 import java.io.IOException;
 import java.util.List;
