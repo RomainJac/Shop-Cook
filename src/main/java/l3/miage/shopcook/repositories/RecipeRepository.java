@@ -6,5 +6,8 @@ import l3.miage.shopcook.recipes.Recipe;
 import l3.miage.shopcook.user.User;
 
 public interface RecipeRepository extends JpaRepository<Recipe, Integer> {
+
     java.util.List<Recipe> findByUser(User user);
+
+    Recipe findByName(String name);
 }

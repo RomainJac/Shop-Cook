@@ -13,6 +13,8 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import l3.miage.shopcook.recipes.Recipe;
 import l3.miage.shopcook.services.RecipeService;
+import l3.miage.shopcook.dto.RecipeDTO;
+import l3.miage.shopcook.mappers.RecipeMapper;
 
 @RestController
 @RequestMapping(path = "/recipes")
@@ -20,13 +22,17 @@ public class RecipeController {
     @Autowired
     private RecipeService recipeService;
 
+    @Autowired
+    private RecipeMapper recipeMapper;
+
     @GetMapping(path = "/all")
     public List<Recipe> findAll() {
         return this.recipeService.findAll();
     }
 
     @PostMapping(path = "/add")
-    public RedirectView addRecipe(@RequestBody Recipe recipe) {
+    public RedirectView addRecipe(@RequestBody RecipeDTO recipeDTO) {
+        Recipe recipe = recipeMapper.toEntity(recipeDTO);
         this.recipeService.save(recipe);
         return new RedirectView("/options");
     }
@@ -35,5 +41,4 @@ public class RecipeController {
     public Recipe findById(@PathVariable("id") int id) {
         return this.recipeService.findById(id);
     }
-
 }

@@ -44,6 +44,14 @@ public class User implements Serializable {
         return username;
     }
 
+    public List<Recipe> getRecipes() {
+        return recipes;
+    }
+
+    public void setRecipes(List<Recipe> recipes) {
+        this.recipes = recipes;
+    }
+
     public void setUsername(String username) {
         this.username = username;
     }

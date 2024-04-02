@@ -1,6 +1,5 @@
 package l3.miage.shopcook.recipes;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.Column;
@@ -29,6 +28,7 @@ public class Recipe {
     private String image;
     private String name;
     private String description;
+
     @Column(name = "time_to_make")
     private String timeToMake;
 
@@ -38,6 +38,18 @@ public class Recipe {
 
     public void setIngredients(List<Ingredient> ingredients) {
         this.ingredients = ingredients;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public String getImage() {
@@ -70,10 +82,6 @@ public class Recipe {
 
     public void setTimeToMake(String timeToMake) {
         this.timeToMake = timeToMake;
-    }
-
-    public Recipe() {
-        this.ingredients = new ArrayList<>();
     }
 
     public int getId() {

@@ -10,4 +10,5 @@ import l3.miage.shopcook.user.User;
 public interface IngredientRepository extends JpaRepository<Ingredient, Integer> {
     boolean existsByName(String name);
     List<Ingredient> findByUser(User user);
+    Ingredient findByName(String name);
 }

@@ -1,10 +1,12 @@
-package l3.miage.shopcook.ingredients;
+package l3.miage.shopcook.dto;
+
+import l3.miage.shopcook.user.User;
 
 public class IngredientDTO {
     String name;
     int calories;
     float nutriscore;
-    String user;
+    User user;
 
     public String getName() {
         return name;
@@ -28,5 +30,13 @@ public class IngredientDTO {
 
     public void setNutriscore(float nutriscore) {
         this.nutriscore = nutriscore;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

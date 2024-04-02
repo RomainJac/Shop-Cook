@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import l3.miage.shopcook.recipes.Recipe;
 import l3.miage.shopcook.repositories.UserRepository;
 import l3.miage.shopcook.user.User;
 
