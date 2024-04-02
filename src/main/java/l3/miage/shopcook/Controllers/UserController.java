@@ -37,7 +37,7 @@ public class UserController {
         return userService.findById(id);
     }
 
-    @PostMapping
+    @PostMapping(path="add")
     public boolean createUser(@RequestBody User user) {
         return userService.save(user);
     }
@@ -50,9 +50,9 @@ public class UserController {
 
     
   
-    @PostMapping(path = "/add")
-    public void addUser(@RequestParam UserDTO userdto) {
-        User user = this.modelMapper.map(userdto, User.class);
-        this.userService.save(user);
-    }
+    // @PostMapping(path = "/add")
+    // public void addUser(@RequestParam UserDTO userdto) {
+    //     User user = this.modelMapper.map(userdto, User.class);
+    //     this.userService.save(user);
+    // }
 }

@@ -9,6 +9,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import l3.miage.shopcook.ingredients.Ingredient;
+import l3.miage.shopcook.recipes.Recipe;
 
 @Entity
 public class User implements Serializable {
@@ -20,6 +21,8 @@ public class User implements Serializable {
 
     @OneToMany(mappedBy = "user")
     private List<Ingredient> ingredients;
+    @OneToMany(mappedBy = "user")
+    private List<Recipe> recipes;
 
     public User() {
         this.username = "";

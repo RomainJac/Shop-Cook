@@ -4,7 +4,7 @@ public class IngredientDTO {
     String name;
     int calories;
     float nutriscore;
-    String username;
+    String user;
 
     public String getName() {
         return name;
