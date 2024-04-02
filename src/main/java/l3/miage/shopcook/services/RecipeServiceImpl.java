@@ -34,7 +34,7 @@ public class RecipeServiceImpl implements RecipeService{
     }
 
     @Override
-    public Recipe getById(int id) {
+    public Recipe findById(int id) {
         return this.recipeRepository.findById(id).get();
     }
 

@@ -11,6 +11,6 @@ public interface RecipeService {
     boolean save(Recipe recipe);
     boolean delete(Recipe recipe);
     boolean update(Recipe recipe);
-    Recipe getById(int id);
+    Recipe findById(int id);
     List<Recipe> findAll(); 
 }

@@ -12,25 +12,25 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.view.RedirectView;
 
 import l3.miage.shopcook.recipes.Recipe;
-import l3.miage.shopcook.repositories.RecipeRepository;
+import l3.miage.shopcook.services.RecipeService;
 
 @RestController
 @RequestMapping(path = "/recipes")
 public class RecipeController {
     @Autowired
-    private RecipeRepository recipeRepository;
+    private RecipeService recipeService;
     @GetMapping(path = "/all")
     public List<Recipe> findAll() {
-        return this.recipeRepository.findAll();
+        return this.recipeService.findAll();
     }
     @PostMapping (path = "/add")
     public RedirectView addRecipe(@RequestBody Recipe recipe) {
-        this.recipeRepository.save(recipe);
+        this.recipeService.save(recipe);
         return new RedirectView("/options");
     }
     @GetMapping(path = "/{id}")
     public Recipe findById(@PathVariable("id")int id) {
-        return this.recipeRepository.findById( id).get();
+        return this.recipeService.findById( id);
     }
     
 }
