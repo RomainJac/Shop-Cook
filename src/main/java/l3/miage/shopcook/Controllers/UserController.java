@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import l3.miage.shopcook.services.UserService;
+import l3.miage.shopcook.user.User;
+import l3.miage.shopcook.user.UserDTO;
 
 @RestController
 @RequestMapping(path = "/users")
@@ -20,7 +22,7 @@ public class UserController {
 
     @PostMapping(path = "/add")
     public void addUser(@RequestParam UserDTO userdto) {
-        this.modelMapper.map(userdto, User.class);
+        User user = this.modelMapper.map(userdto, User.class);
         this.userService.save(user);
     }
 }

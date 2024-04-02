@@ -48,7 +48,7 @@ public class RecipeServiceImpl implements RecipeService {
 
     @Override
     public List<Recipe> findByUser(User user) {
-        throw new UnsupportedOperationException("Unimplemented method 'findByUser'");
-    }
+        return this.recipeRepository.findByUser(user);
+        }
 
 }

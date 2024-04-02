@@ -2,42 +2,61 @@ package l3.miage.shopcook.services;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import l3.miage.shopcook.recipes.Recipe;
+import l3.miage.shopcook.repositories.UserRepository;
 import l3.miage.shopcook.user.User;
 
 @Service
 public class UserServiceImpl implements UserService {
 
+    @Autowired
+    UserRepository userRepository;
     @Override
     public boolean save(User user) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'save'");
+       try {
+
+           this.userRepository.save(user);
+           return true;
+
+       }
+         catch (Exception e) {
+              return false;
+         }
     }
 
     @Override
     public boolean delete(User user) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'delete'");
+       try {
+        this.userRepository.delete(user);
+        return true;
+       }
+         catch (Exception e) {
+              return false;
+         }
     }
 
     @Override
     public boolean update(User user) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'update'");
+ 
+        if (this.userRepository.existsById(user.getId())) {
+            this.delete(user);
+            this.save(user);
+            return true;
+        }
+        return false;
     }
 
     @Override
-    public Recipe findById(int id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findById'");
+    public User findById(int id) {
+     return this.userRepository.findById(id).get();   
     }
 
     @Override
-    public List<Recipe> findAll() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findAll'");
+    public List<User> findAll() {
+        return this.userRepository.findAll();
     }
     
 }
