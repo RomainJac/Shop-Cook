@@ -10,8 +10,10 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import l3.miage.shopcook.ingredients.Ingredient;
+import l3.miage.shopcook.user.User;
 
 @Entity
 @Table(name = "recipes")
@@ -22,6 +24,8 @@ public class Recipe {
     @ElementCollection
     @ManyToMany(mappedBy = "name")
     private List<Ingredient> ingredients;
+    @ManyToOne(targetEntity = User.class, optional = true)
+    User user;
     private String image;
     private String name;
     private String description;

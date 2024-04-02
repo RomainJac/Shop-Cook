@@ -7,35 +7,34 @@ import org.springframework.stereotype.Service;
 
 import l3.miage.shopcook.ingredients.Ingredient;
 import l3.miage.shopcook.repositories.IngredientRepository;
-
+import l3.miage.shopcook.user.User;
 @Service
 public class IngredientServiceImpl implements IngredientService {
     @Autowired
     private IngredientRepository ingredientRepository;
-
     @Override
     public boolean save(Ingredient ingredient) {
         try {
-
+ 
             this.ingredientRepository.save(ingredient);
             return true;
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             return false;
         }
     }
-
-    public boolean save(String name, float nutriscore, int calories) {
+    public boolean save (String name, float nutriscore, int calories) {
         Ingredient i = new Ingredient(name, nutriscore, calories);
         this.save(i);
         return true;
     }
-
     @Override
     public boolean removeIngredient(Ingredient ingredient) {
         try {
             this.ingredientRepository.delete(ingredient);
             return true;
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             return false;
         }
     }
@@ -59,5 +58,10 @@ public class IngredientServiceImpl implements IngredientService {
     public List<Ingredient> findAll() {
         return this.ingredientRepository.findAll();
     }
-
+    @Override
+    public List<Ingredient> findByUser(User user) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'findByUser'");
+    }
+    
 }

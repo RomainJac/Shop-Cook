@@ -33,8 +33,7 @@ public class IngredientController {
         ingredientService.save(ingredient);
         return ResponseEntity.ok("Saved");
     }
-
-    @PostMapping(path = "/add", consumes = { "application/json" })
+@PostMapping(path = "/add", consumes = { "application/json" })
     public Ingredient add(@RequestBody IngredientDTO ingredientDTO) throws IOException {
         // @ResponseBody means the returned String is the response, not a view name
         // @RequestParam means it is a parameter from the GET or POST request
