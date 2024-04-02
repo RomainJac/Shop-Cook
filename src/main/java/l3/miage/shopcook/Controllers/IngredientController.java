@@ -1,4 +1,4 @@
-package l3.miage.shopcook.Controllers;
+package l3.miage.shopcook.controllers;
 
 import java.io.IOException;
 import java.util.List;
@@ -30,12 +30,6 @@ public class IngredientController {
     @PostMapping(path = "/add",  consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE 
     ) // Map ONLY POST Requests
     public ResponseEntity<String>  addNewIngredient(IngredientDTO ingredientDTO) throws IOException {
-        // @ResponseBody means the returned String is the response, not a view name
-        // @RequestParam means it is a parameter from the GET or POST request
-        // List<DietaryRestriction> dietaryRestrictionsList = new ArrayList<>();
-        // for (String s : dietaryRestrictions.split(";")) {
-        //     dietaryRestrictionsList.add(new DietaryRestriction(s));
-        // }
         Ingredient ingredient = this.modelMapper.map(ingredientDTO, Ingredient.class);
         ingredientService.save(ingredient);
         return ResponseEntity.ok("Ingredient Saved");
