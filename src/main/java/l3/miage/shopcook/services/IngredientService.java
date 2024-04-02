@@ -15,4 +15,5 @@ public interface IngredientService {
     Ingredient getById(int id);
     List<Ingredient> findAll();
     List<Ingredient>findByUser(User user);
+    void deleteById(Integer id);
 }

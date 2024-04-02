@@ -23,17 +23,21 @@ public class UserMapper {
     public UserDTO toDTO(User user) {
         UserDTO userDTO = new UserDTO();
         userDTO.setUsername(user.getUsername());
-        userDTO.setIngredients(user.getIngredients().stream().map(Ingredient::getName).collect(Collectors.toList()));
-        userDTO.setRecipes(user.getRecipes().stream().map(Recipe::getName).collect(Collectors.toList()));
+        if (user.getIngredients() != null)
+             userDTO.setIngredients(user.getIngredients().stream().map(Ingredient::getName).collect(Collectors.toList()));
+        if (user.getRecipes() != null)
+             userDTO.setRecipes(user.getRecipes().stream().map(Recipe::getName).collect(Collectors.toList()));
         return userDTO;
     }
 
     public User toEntity(UserDTO userDTO) {
         User user = new User();
         user.setUsername(userDTO.getUsername());
-        user.setIngredients(userDTO.getIngredients().stream().map(n -> ingredientRepository.findByName(n))
+        if (userDTO.getIngredients()!=null)
+            user.setIngredients(userDTO.getIngredients().stream().map(n -> ingredientRepository.findByName(n))
                 .collect(Collectors.toList()));
-        user.setRecipes(userDTO.getRecipes().stream().map(n -> recipeRepository.findByName(n))
+        if (userDTO.getRecipes()!=null) 
+                user.setRecipes(userDTO.getRecipes().stream().map(n -> recipeRepository.findByName(n))
                 .collect(Collectors.toList()));
         return user;
     }

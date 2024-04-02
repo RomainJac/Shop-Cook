@@ -6,8 +6,8 @@ public class IngredientDTO {
     String name;
     int calories;
     float nutriscore;
-    User user;
-
+    String user;
+    
     public String getName() {
         return name;
     }
@@ -32,11 +32,11 @@ public class IngredientDTO {
         this.nutriscore = nutriscore;
     }
 
-    public User getUser() {
-        return user;
+    public String getUser() {
+        return this.user;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser(String username) {
+        this.user = username;
     }
 }

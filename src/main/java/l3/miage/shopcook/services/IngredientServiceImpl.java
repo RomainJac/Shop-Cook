@@ -59,8 +59,12 @@ public class IngredientServiceImpl implements IngredientService {
         return this.ingredientRepository.findAll();
     }
     @Override
-    public List<Ingredient> findByUser(User user) {
+    public List<Ingredient> findByUser(User user) { 
        return this.ingredientRepository.findByUser(user);
+    }
+    @Override
+    public void deleteById(Integer id) {
+         this.ingredientRepository.deleteById(id);
     }
     
 }

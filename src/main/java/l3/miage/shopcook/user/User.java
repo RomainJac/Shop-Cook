@@ -8,15 +8,17 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 import l3.miage.shopcook.ingredients.Ingredient;
 import l3.miage.shopcook.recipes.Recipe;
 
 @Entity
+@Table(name = "user", uniqueConstraints = @UniqueConstraint(columnNames = "username"))
 public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String username;
 
     @OneToMany(mappedBy = "user")

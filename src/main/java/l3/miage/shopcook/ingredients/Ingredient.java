@@ -2,6 +2,8 @@ package l3.miage.shopcook.ingredients;
 
 import java.io.Serializable;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.annotation.Nullable;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -19,6 +21,7 @@ public class Ingredient implements Serializable {
     private Integer id;
 
     @ManyToOne(targetEntity = User.class, optional = true)
+    @JsonBackReference
     private User user;
 
     public Integer getId() {

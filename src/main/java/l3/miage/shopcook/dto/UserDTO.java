@@ -1,5 +1,6 @@
 package l3.miage.shopcook.dto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserDTO {
@@ -7,7 +8,6 @@ public class UserDTO {
     private String username;
     private List<String> ingredients;
     private List<String> recipes;
-
     public List<String> getIngredients() {
         return ingredients;
     }
