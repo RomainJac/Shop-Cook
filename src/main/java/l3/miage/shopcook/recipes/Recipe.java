@@ -2,6 +2,8 @@ package l3.miage.shopcook.recipes;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
@@ -22,8 +24,10 @@ public class Recipe {
     private int id;
     @ElementCollection
     @ManyToMany(mappedBy = "name")
+    @JsonBackReference
     private List<Ingredient> ingredients;
     @ManyToOne(targetEntity = User.class, optional = true)
+    @JsonBackReference
     User user;
     private String image;
     private String name;

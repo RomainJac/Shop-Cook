@@ -14,12 +14,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping(path = "/ingredients")
 public class IngredientFrontController {
 
-    @GetMapping("/add")
+    @GetMapping(path="/add")
     public String show() {
         return "addIngredients.html";
     }
 
-    @GetMapping("/")
+    @GetMapping(path="/")
     public String showOptions() {
         return "ingredientsOptions.html";
     }

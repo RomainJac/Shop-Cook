@@ -23,7 +23,8 @@ public class Ingredient implements Serializable {
     @ManyToOne(targetEntity = User.class, optional = true)
     @JsonBackReference
     private User user;
-
+    
+    
     public Integer getId() {
         return id;
     }

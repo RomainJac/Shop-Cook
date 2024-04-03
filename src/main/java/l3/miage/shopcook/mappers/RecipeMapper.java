@@ -6,13 +6,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import l3.miage.shopcook.dto.RecipeDTO;
+import l3.miage.shopcook.ingredients.Ingredient;
 import l3.miage.shopcook.recipes.Recipe;
+import l3.miage.shopcook.repositories.IngredientRepository;
 import l3.miage.shopcook.repositories.UserRepository;
 
 @Component
 public class RecipeMapper {
     @Autowired
     UserRepository userRepository;
+    @Autowired
+    IngredientRepository ingredientRepository;
 
     public RecipeDTO toDTO(Recipe recipe) {
         RecipeDTO recipeDTO = new RecipeDTO();
@@ -22,7 +26,7 @@ public class RecipeMapper {
         recipeDTO.setTimeToMake(recipe.getTimeToMake());
         recipeDTO.setImage(recipe.getImage());
         if (recipe.getIngredients() != null)
-            recipeDTO.setIngredients(recipe.getIngredients().stream().collect(Collectors.toList()));
+            recipeDTO.setIngredients(recipe.getIngredients().stream().map(Ingredient::getName).collect(Collectors.toList()));
         return recipeDTO;
     }
 
@@ -34,7 +38,7 @@ public class RecipeMapper {
         recipe.setTimeToMake(recipeDTO.getTimeToMake());
         recipe.setImage(recipeDTO.getImage());
         if (recipeDTO.getIngredients() != null)
-            recipe.setIngredients(recipeDTO.getIngredients().stream().collect(Collectors.toList()));
+            recipe.setIngredients(recipeDTO.getIngredients().stream().map(i -> this.ingredientRepository.findByName(i)).collect(Collectors.toList()));
         return recipe;
     }
 }

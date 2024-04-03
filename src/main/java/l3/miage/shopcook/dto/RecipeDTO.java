@@ -9,7 +9,7 @@ public class RecipeDTO {
     private String description;
     private String timeToMake;
     private String image;
-    private List<Ingredient> ingredients;
+    private List<String> ingredients;
     private String user;
 
     public String getName() {
@@ -52,11 +52,11 @@ public class RecipeDTO {
         this.image = image;
     }
 
-    public List<Ingredient> getIngredients() {
+    public List<String> getIngredients() {
         return ingredients;
     }
 
-    public void setIngredients(List<Ingredient> ingredients) {
+    public void setIngredients(List<String> ingredients) {
         this.ingredients = ingredients;
     }
 
